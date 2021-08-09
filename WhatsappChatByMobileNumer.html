@@ -1,0 +1,112 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+</head>
+
+<body class="m-3">
+
+    <script>
+
+        function openWebWhatsApp() {
+            mobNum = document.getElementById("mobnumber").value;
+            console.log(mobNum);
+            noSpaceNumber = mobNum.replace(/\s/g, '');
+            console.log("Original value: " + mobNum);
+            console.log("with no spacees: " + noSpaceNumber);
+
+            preloadedMessage = "text=";
+
+            selectedOption = document.getElementById("options").value;
+            if (selectedOption.length == 0) {
+                console.log("no option was selected");
+            }
+            else {
+                console.log("option [" + selectedOption + "] was selected");
+                switch (selectedOption) {
+                    case "myapartment":
+                        preloadedMessage += "https%3A%2F%2Fgoo.gl%2Fmaps%2F9L2ts8cVEp6e85KT8";
+                        break;
+                    case "wok":
+                        preloadedMessage += "https%3A%2F%2Fmaps.app.goo.gl%2F7xFhz5dnA3E6BVbd7";
+                        break;
+                    case "riyadapartment":
+                        preloadedMessage += "https%3A%2F%2Fmaps.app.goo.gl%2FjHmFus8YFxdnuetS9";
+                        break;
+                    default:
+                        preloadedMessage += "";
+                        console.log("in switch; no option mattched");
+                }
+            }
+
+            if (noSpaceNumber.length < 9) {
+                console.log("Invalid number provided [" + noSpaceNumber + "]");
+
+                var blob = new Blob(["Hello, world!"], { type: "text/plain;charset=utf-8" });
+                FileSaver.saveAs(blob, "hello world.txt");
+
+            }
+            else if (noSpaceNumber.length < 10) {
+                console.log("number is of length [" + noSpaceNumber.length + "] assuing KSA");
+                location.href = "https://wa.me/966" + noSpaceNumber + "?" + preloadedMessage;
+            }
+            else if (noSpaceNumber.length < 11) {
+                console.log("number is of length [" + noSpaceNumber.length + "] assuing KSA & removeing first number");
+                noSpaceNumber = noSpaceNumber.substring(1);
+                location.href = "https://wa.me/966" + noSpaceNumber + "?" + preloadedMessage;
+            }
+            else if (noSpaceNumber.length == 12 || noSpaceNumber.length == 13) {
+                console.log("number is of length [" + noSpaceNumber.length + "] assuing country code is included");
+                location.href = "https://wa.me/" + noSpaceNumber + "?" + preloadedMessage;
+            }
+            else {
+                console.log("Invalid number provided [" + noSpaceNumber + "]");
+
+            }
+
+
+            //location.replace("https://wa.me/966" + mobNum);
+
+        }
+    </script>
+    <div class="container-fluid">
+        <div class="row p-1">
+            <div class="col">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text">Mobile Numer</span>
+                    </div>
+                    <input type="text" class="form-control" aria-label="Mobil number" id="mobnumber">
+                </div>
+            </div>
+        </div>
+
+        <div class="row p-1">
+            <div class="col">
+                <select class="form-select w-100" aria-label="Default select example" id="options">
+                    <option value="" disabled selected>Preloaded message</option>
+                    <option value="myapartment">My appartment location </option>
+                    <option value="wok">Work location</option>
+                    <option value="riyadapartment">Riyad Appartment location</option>
+                </select>
+            </div>
+
+        </div>
+
+        <div class="row mt-5 p-1">
+            <div class="col">
+                <button type="button" class="btn btn-primary w-100" onclick="openWebWhatsApp()">Chat</button>
+            </div>
+        </div>
+
+
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+
+</html>
