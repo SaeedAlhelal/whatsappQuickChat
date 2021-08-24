@@ -26,15 +26,13 @@
             else {
                 console.log("option [" + selectedOption + "] was selected");
                 switch (selectedOption) {
-                    case "myapartment":
-                        preloadedMessage += "https%3A%2F%2Fgoo.gl%2Fmaps%2F9L2ts8cVEp6e85KT8";
+                    case "home":
+                        preloadedMessage += "home location (test message)";
                         break;
-                    case "wok":
-                        preloadedMessage += "https%3A%2F%2Fmaps.app.goo.gl%2F7xFhz5dnA3E6BVbd7";
+                    case "work":
+                        preloadedMessage += "wokr location (test message)";
                         break;
-                    case "riyadapartment":
-                        preloadedMessage += "https%3A%2F%2Fmaps.app.goo.gl%2FjHmFus8YFxdnuetS9";
-                        break;
+                    
                     default:
                         preloadedMessage += "";
                         console.log("in switch; no option mattched");
@@ -87,9 +85,8 @@
             <div class="col">
                 <select class="form-select w-100" aria-label="Default select example" id="options">
                     <option value="" disabled selected>Preloaded message</option>
-                    <option value="myapartment">My appartment location </option>
-                    <option value="wok">Work location</option>
-                    <option value="riyadapartment">Riyad Appartment location</option>
+                    <option value="home">Home location</option>
+                    <option value="work">Work location</option>
                 </select>
             </div>
 
